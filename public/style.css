@@ -1,0 +1,65 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: 500;
+}
+body{
+    background-image: url("./static-images/vecteezy_abstract-black-and-white-grid-striped-geometric-pattern_3685734.jpg");
+    background-repeat: repeat;
+    background-size: contain;
+}
+.main{
+    backdrop-filter: blur(1px);
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    min-height: 100vh;
+}
+.title{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.appli-cards{
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    gap:20px;
+    display: flex;
+    padding:20px;
+    margin-top: 50px;
+    .card{
+        background-color: rgb(220, 238, 255);
+        padding: 10px;
+        border-radius: 10px;
+        box-shadow: 1px 1px 1px 1px;
+        .card-title{
+            font-size: medium;
+        }
+        .card-desc{
+            font-size: small;
+        }
+        .card-actions{
+            display: flex;
+            flex-direction: column;
+            background-color: white;
+            margin-top: 10px;
+            padding:10px;
+            border-radius: 5px;
+            .action-title{
+                font-size:11px;
+                font-weight: 100;
+                color: gray;
+            }
+            .fan-input{
+                outline:none;
+                border:none;
+                border-bottom:1px solid black;
+            }
+        }
+    }   
+}
