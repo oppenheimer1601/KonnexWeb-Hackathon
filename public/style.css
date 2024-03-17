@@ -25,18 +25,28 @@ body{
     align-items: center;
 }
 .appli-cards{
-    width: 100%;
     justify-content: center;
-    align-items: center;
+    align-items: start;
     gap:20px;
     display: flex;
     padding:20px;
     margin-top: 50px;
     .card{
+        width:250px;
         background-color: rgb(220, 238, 255);
         padding: 10px;
         border-radius: 10px;
         box-shadow: 1px 1px 1px 1px;
+        .card-img{
+            padding:20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            img{
+                height: 100px;
+                width:100px;
+            }
+        }
         .card-title{
             font-size: medium;
         }
@@ -56,10 +66,30 @@ body{
                 color: gray;
             }
             .fan-input{
+                height:50px;
                 outline:none;
                 border:none;
                 border-bottom:1px solid black;
             }
+            .on{
+                border:none;
+                padding:5px;
+                margin:3px;
+                background-color: rgba(0, 128, 0, 0.607);
+                border-radius: 10px;
+            }
+            .off{
+                border:none;
+                padding:5px;
+                margin:3px;
+                background-color: rgba(128, 0, 0, 0.607);
+                border-radius: 10px;
+            }
+        }
+        .led-input{
+            border:none;
+            height: 50px;
+            width:50px;
         }
     }   
 }
