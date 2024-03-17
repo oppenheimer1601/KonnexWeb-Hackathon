@@ -6,7 +6,7 @@
     color:white;
 }
 body{
-    background-image: url("./static-images/main_bg.jpg");
+    background-image: url("./static-images/main_bg-min.jpg");
     background-size:cover;
     backdrop-filter: blur(10px);
 }
