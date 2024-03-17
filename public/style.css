@@ -37,13 +37,13 @@ body{
     padding:20px;
     overflow: scroll;
     height: 70vh;
-    margin-top: 100px;
+    margin-top: 10px;
     .card{
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        width:450px;
-        min-height: 68vh;
+        min-width:450px;
+        min-height: 550px;
         background-color:transparent;
         padding: 10px;
         border-radius: 10px;
@@ -156,4 +156,25 @@ body{
 }
 .appli-cards::-webkit-scrollbar{
     display: none;
+}
+.popup{
+    margin:10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding:10px;
+    background-color: rgb(115, 220, 115);
+    gap:10px;
+    border-radius: 10px;
+    button{
+        cursor: pointer;
+        color: black;
+        background-color: transparent;
+        outline:1px solid black;
+        border:none;
+        padding:5px;
+        height: 30px;
+        width: 30px;
+        border-radius: 50%;
+    }
 }

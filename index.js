@@ -18,12 +18,27 @@ let appliancesData = {
     "actemp":16,
     "acstate":0,
     "bulbstate":0,
-    "ledcolor":"#000000"
+    "ledcolor":"#000000",
+    "statusMessage":{"message":null,"code":"success"}
 }
 app.get("/",(req,res)=>{
     res.render("landing.ejs");
 })
-app.get("/home", (req,res)=>{
+app.get("/home", async(req,res)=>{
+    try {
+            const result = await axios.get(API_URL + "/devices/"+teamID);
+            console.log(result.data);
+        
+            appliancesData.fanspeed=result.data.fan;
+            appliancesData.bulbstate=result.data.bulb;
+            appliancesData.ledcolor=result.data.led;
+            appliancesData.acstate=result.data.ac.state;
+            appliancesData.actemp=result.data.ac.temp;
+            console.log(appliancesData);
+    }catch(error){
+        console.log(error);
+        appliancesData["statusMessage"]["message"] = "devices/api are offline";
+    }
     res.render("index.ejs",{data:appliancesData});
 })
 
@@ -34,10 +49,15 @@ app.post("/fan-speed", async (req, res) => {
       const result = await axios.post(API_URL + "/devices/",parm);
       console.log(result.data);
       appliancesData["fanspeed"]=parseInt(speed);
+      appliancesData["statusMessage"]["message"]="fan speed set successful"
+      appliancesData["statusMessage"]["code"]="sucess"
+      
       console.log(appliancesData);
       res.redirect("/home");
     } catch (error) {
-      console.log(error);
+        appliancesData["statusMessage"]["message"]="fan speed set unsuccessful"
+        appliancesData["statusMessage"]["code"]="fail"
+        res.redirect("/home");
     }
   });
 
@@ -49,10 +69,13 @@ app.post("/fan-speed", async (req, res) => {
       const result = await axios.post(API_URL + "/devices/",parm);
       console.log(result.data);
       appliancesData["bulbstate"]=parseInt(state);
-      console.log(appliancesData);
+      appliancesData["statusMessage"]["message"]="bulb turned on"
+      appliancesData["statusMessage"]["code"]="sucess"
       res.redirect("/home");
     } catch (error) {
-      console.log(error);
+      appliancesData["statusMessage"]["message"]="cannot turn on bulb"
+      appliancesData["statusMessage"]["code"]="fail"
+      res.redirect("/home");
     }
   });
 
@@ -64,10 +87,13 @@ app.post("/fan-speed", async (req, res) => {
       const result = await axios.post(API_URL + "/devices/",parm);
       console.log(result.data);
       appliancesData["ledcolor"]=state;
-      console.log(appliancesData);
+      appliancesData["statusMessage"]["message"]="led turned on"
+      appliancesData["statusMessage"]["code"]="sucess"
       res.redirect("/home");
     } catch (error) {
-      console.log(error);
+      appliancesData["statusMessage"]["message"]="cannot turn on led"
+      appliancesData["statusMessage"]["code"]="fail"
+      res.redirect("/home");
     }
   });
 
@@ -82,10 +108,14 @@ app.post("/fan-speed", async (req, res) => {
       console.log(result.data);
       appliancesData["actemp"]=acVitals.temp;
       appliancesData["acstate"]=acVitals.state;
-      console.log(appliancesData);
+      appliancesData["statusMessage"]["message"]="ac vitals updated succesfully"
+      appliancesData["statusMessage"]["code"]="sucess"
+
       res.redirect("/home");
     } catch (error) {
-      console.log(error);
+      appliancesData["statusMessage"]["message"]="ac vitals cannot be updated"
+      appliancesData["statusMessage"]["code"]="fail"
+      res.redirect("/home");
     }
   });
 

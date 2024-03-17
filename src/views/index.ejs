@@ -12,6 +12,14 @@
             <h1 class="title-text">Connect Your Home.</h1>
             <p>connect and control your appliances. Everything at your finger-tips</p>
         </div>
+        <% if(data.statusMessage.message){ %>
+        <div class="popup">
+            <span class="pop-title">
+                <%= data.statusMessage.message %>
+            </span>
+            <button id="popup-btn">x</button>
+        </div>
+        <% } %>
         <div class="main-window">
             <div class="main-btn-window">
                 <a href="#fan"><button class="scroller-btn">Fan</button></a>
