@@ -1,50 +1,62 @@
+@import url("https://fonts.googleapis.com/css?family=Raleway");
 *{
     margin: 0;
     padding: 0;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-weight: 500;
+    font-family:"Raleway", sans-serif;
+    color:white;
 }
 body{
-    background-image: url("./static-images/vecteezy_abstract-black-and-white-grid-striped-geometric-pattern_3685734.jpg");
-    background-repeat: repeat;
-    background-size: contain;
+    background-image: url("./static-images/main_bg.jpg");
+    background-size:cover;
+    backdrop-filter: blur(10px);
 }
 .main{
     backdrop-filter: blur(1px);
-    width: 100vw;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    min-height: 100vh;
+    height: 100vh;
 }
 .title{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    color:white;
+    .title-text{
+        font-size: 50px;
+    }
 }
 .appli-cards{
-    justify-content: center;
-    align-items: start;
+    scroll-behavior: smooth;
+    flex-direction: column;
+    justify-content: space-between;
     gap:20px;
     display: flex;
     padding:20px;
-    margin-top: 50px;
+    overflow: scroll;
+    height: 70vh;
+    margin-top: 100px;
     .card{
-        width:250px;
-        background-color: rgb(220, 238, 255);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width:450px;
+        min-height: 68vh;
+        background-color:transparent;
         padding: 10px;
         border-radius: 10px;
         box-shadow: 1px 1px 1px 1px;
+        outline: 1px solid white;
         .card-img{
             padding:20px;
             display: flex;
             justify-content: center;
             align-items: center;
             img{
-                height: 100px;
-                width:100px;
+                height: 250px;
+                width:250px;
             }
         }
         .card-title{
@@ -56,20 +68,32 @@ body{
         .card-actions{
             display: flex;
             flex-direction: column;
-            background-color: white;
+            background-color: rgba(0, 79, 108, 0.771);
             margin-top: 10px;
             padding:10px;
             border-radius: 5px;
             .action-title{
                 font-size:11px;
                 font-weight: 100;
-                color: gray;
+                color:white;
             }
-            .fan-input{
+            input{
+                font-size: large;
                 height:50px;
                 outline:none;
                 border:none;
                 border-bottom:1px solid black;
+                background: transparent;
+            }
+            button{
+                padding: 10px;
+                width: 100px;
+                border-radius: 10px;
+                background: transparent;
+                outline: 1px solid white;
+                border:none;
+                margin-left: 10px;
+                margin-top: 5px;
             }
             .on{
                 border:none;
@@ -82,7 +106,7 @@ body{
                 border:none;
                 padding:5px;
                 margin:3px;
-                background-color: rgba(128, 0, 0, 0.607);
+                background-color: rgba(255, 7, 7, 0.607);
                 border-radius: 10px;
             }
         }
@@ -92,4 +116,44 @@ body{
             width:50px;
         }
     }   
+}
+.inp-form{
+    display: flex;
+    flex-direction: column;
+}
+.ac-temp-btn{
+    border:none;
+    padding:5px;
+    margin:3px;
+    background-color: rgba(76, 200, 231, 0.607);
+    border-radius: 10px;
+}
+.main-window{
+    width: 100%;
+    display: flex;
+    align-items:center ;
+    justify-content: space-evenly;
+}
+.main-btn-window{
+    display: flex;
+    align-items: center;
+    margin-top: 100px;
+    flex-direction: column;
+    gap:10px;
+    .scroller-btn{
+        font-size: 20px;
+        cursor:pointer;
+        height: 100px;
+        width: 100px;
+        border:none;
+        outline:1px solid black;
+        background: transparent;
+        border-radius: 10px;
+    }
+    a:hover{
+        box-shadow: 10px 10px 80px -8px rgba(51,100,204,1);;
+    }
+}
+.appli-cards::-webkit-scrollbar{
+    display: none;
 }

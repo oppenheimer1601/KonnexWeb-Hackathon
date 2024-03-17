@@ -15,13 +15,15 @@ app.set("view engine","ejs");
 
 let appliancesData = {
     "fanspeed":0,
-    "actemp":0,
+    "actemp":16,
     "acstate":0,
     "bulbstate":0,
     "ledcolor":"#000000"
 }
-
-app.get("/", (req,res)=>{
+app.get("/",(req,res)=>{
+    res.render("landing.ejs");
+})
+app.get("/home", (req,res)=>{
     res.render("index.ejs",{data:appliancesData});
 })
 
@@ -33,7 +35,7 @@ app.post("/fan-speed", async (req, res) => {
       console.log(result.data);
       appliancesData["fanspeed"]=parseInt(speed);
       console.log(appliancesData);
-      res.redirect("/");
+      res.redirect("/home");
     } catch (error) {
       console.log(error);
     }
@@ -48,7 +50,7 @@ app.post("/fan-speed", async (req, res) => {
       console.log(result.data);
       appliancesData["bulbstate"]=parseInt(state);
       console.log(appliancesData);
-      res.redirect("/");
+      res.redirect("/home");
     } catch (error) {
       console.log(error);
     }
@@ -63,7 +65,7 @@ app.post("/fan-speed", async (req, res) => {
       console.log(result.data);
       appliancesData["ledcolor"]=state;
       console.log(appliancesData);
-      res.redirect("/");
+      res.redirect("/home");
     } catch (error) {
       console.log(error);
     }
@@ -81,7 +83,7 @@ app.post("/fan-speed", async (req, res) => {
       appliancesData["actemp"]=acVitals.temp;
       appliancesData["acstate"]=acVitals.state;
       console.log(appliancesData);
-      res.redirect("/");
+      res.redirect("/home");
     } catch (error) {
       console.log(error);
     }

@@ -12,77 +12,85 @@
             <h1 class="title-text">Connect Your Home.</h1>
             <p>connect and control your appliances. Everything at your finger-tips</p>
         </div>
-        <div class="appli-cards">
-            <div class="card">
-                <h4 class="card-title">Fan</h4>
-                <p class="card-desc">control your living room fan</p>
-
-                <div class="card-img">
-                    <img src="./static-images/fan.png" alt="fan">
-                </div>
-
-                <div class="card-actions">
-                    <span class="action-title">Set your fan speed</span>
-                    <form action="/fan-speed" method="post">
-                    <input type="number" name="fan-speed" value="<%=data.fanspeed%>" min="0" max="5">
-                    <button type="submit">Add</button>
-                </form>
-                </div>
-
+        <div class="main-window">
+            <div class="main-btn-window">
+                <a href="#fan"><button class="scroller-btn">Fan</button></a>
+                <a href="#ac"><button class="scroller-btn">AC</button></a>
+                <a href="#bulb"><button class="scroller-btn">Bulb</button></a>
+                <a href="#led"><button class="scroller-btn">LED</button></a>
             </div>
-            <div class="card">
-                <h4 class="card-title">AC</h4>
-                <p class="card-desc">control your living room AC</p>
-                
-                <div class="card-img">
-                    <img src="./static-images/AC.png" alt="fan">
+            <div class="appli-cards">
+                <div class="card" id="fan">
+                    <h4 class="card-title">Fan</h4>
+                    <p class="card-desc">control your living room fan</p>
+    
+                    <div class="card-img">
+                        <img src="./static-images/fan.png" alt="fan">
+                    </div>
+    
+                    <div class="card-actions">
+                        <span class="action-title">Set your fan speed</span>
+                        <form action="/fan-speed" method="post"class="inp-frm">
+                        <input type="number" name="fan-speed" value="<%=data.fanspeed%>" min="0" max="5">
+                        <button type="submit">Set speed</button>
+                    </form>
+                    </div>
+    
                 </div>
-
-                <div class="card-actions">
-                    <form action="/ac" method="post">
-                    <button name="ac" class="on" value="1">ON</button>
-                    <button name="ac" class="off" value="0" >OFF</button>
-
-                    <span class="action-title">Set your ac temp.</span>
-                    <input type="number"  name="actemp" value="<%=data.actemp%>" min="16" max="30">
-                    <button type="submit" >Set Temp</button>
-                </form>
+                <div class="card" id="ac">
+                    <h4 class="card-title">AC</h4>
+                    <p class="card-desc">control your living room AC</p>
+                    
+                    <div class="card-img">
+                        <img src="./static-images/AC.png" alt="fan">
+                    </div>
+    
+                    <div class="card-actions">
+                        <form action="/ac" method="post" class="inp-form">
+                            <button name="ac" class="on" value="1">ON</button>
+                            <button name="ac" class="off" value="0" >OFF</button>
+                            
+                            <span class="action-title">Set your ac temp.</span>
+                        <input type="number"  name="actemp" value="<%=data.actemp%>" min="16" max="30">
+                        <button type="submit" class="ac-temp-btn" >Set Temp</button>
+                    </form>
+                    </div>
+    
                 </div>
-
-            </div>
-            <div class="card">
-                <h4 class="card-title">Bulb</h4>
-                <p class="card-desc">control your living room bulb</p>
-
-                <div class="card-img">
-                    <img src="./static-images/bulb.png" alt="fan">
+                <div class="card" id="bulb">
+                    <h4 class="card-title">Bulb</h4>
+                    <p class="card-desc">control your living room bulb</p>
+    
+                    <div class="card-img">
+                        <img src="./static-images/bulb.png" alt="fan">
+                    </div>
+    
+                    <div class="card-actions">
+                        <span class="action-title">Set your bulb on/off</span>
+                        <form action="/bulb" method="post">
+                        <button type="submit" name="bulb" value="1" class="on">ON</button>
+                        <button type="submit" name="bulb" value="0" class="off">OFF</button>
+                    </form>
+                    </div>
+    
                 </div>
-
-                <div class="card-actions">
-                    <span class="action-title">Set your bulb on/off</span>
-                    <form action="/bulb" method="post">
-                    <button type="submit" name="bulb" value="1" class="on">ON</button>
-                    <button type="submit" name="bulb" value="0" class="off">OFF</button>
-                </form>
+                <div class="card" id="led">
+                    <h4 class="card-title">LED</h4>
+                    <p class="card-desc">control your living room LED</p>
+    
+                    <div class="card-img">
+                        <img src="./static-images/LED.png" alt="fan">
+                    </div>
+    
+                    <div class="card-actions">
+                        <span class="action-title">Set your led color</span>
+                        <form action="/led" method="post">
+                        <input type="color" name="ledColor" class="led-input" value="#00000">
+                        <button type="submit">Set Color</button>
+                    </form>
+                    </div>
+    
                 </div>
-
-            </div>
-            <div class="card">
-                <h4 class="card-title">LED</h4>
-                <p class="card-desc">control your living room LED</p>
-
-                <div class="card-img">
-                    <img src="./static-images/LED.png" alt="fan">
-                </div>
-
-                <div class="card-actions">
-                    <span class="action-title">Set your led color</span>
-                    <form action="/led" method="post">
-                    <input type="color" name="ledColor" class="led-input" value="#00000">
-                    <button type="submit">Set Color</button>
-                </form>
-                </div>
-
             </div>
         </div>
     </div>
